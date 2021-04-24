@@ -1,0 +1,7 @@
+Name n
+Symbol s
+Price USD(maybe make converter)(some have price in BTC) p
+%Change 24h (some have 7d) pc
+Market cap mc
+24h volume v
+Circulating supply( not available from market endpoint unclear which value it is on assets endpoint but each site seems to display this piece of info)

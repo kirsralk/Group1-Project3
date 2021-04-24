@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ApiTestComponent from "./components/ApiTestComponent";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
               To get started, edit <code>src/App.js</code> and save to reload.
             </p>
           </div>
+          <ApiTestComponent />
       </Router>
     );
   }
