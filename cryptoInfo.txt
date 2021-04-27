@@ -5,3 +5,5 @@ Price USD(maybe make converter)(some have price in BTC) p
 Market cap mc
 24h volume v
 Circulating supply( not available from market endpoint unclear which value it is on assets endpoint but each site seems to display this piece of info)
+
+
