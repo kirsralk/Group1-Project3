@@ -8,12 +8,15 @@ export default {
         return axios.get(`https://api.lunarcrush.com/v2?data=market&key=${APIKey}&type=fast&desc=true&sort=mc&limit=${limit}`);
     }, 
     createPost: function(postData){
-        //axios.post("post endpoint", postData);
+        axios.post("/api/posts", postData);
+    },
+    createReply: function(id, postData){
+        axios.post("/api/posts/" + id, postData);
     },
     getAllPosts: function(){
-        //axios.get("get all endpoint")
+        //axios.get("/api/posts")
     },
     getPostById: function(id){
-        //axios.get("get single post endpoint" + id);
+        //axios.get("api/posts/" + id);
     }
 }

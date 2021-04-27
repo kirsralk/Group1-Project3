@@ -19,7 +19,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Post.update(
+    db.Post.updateOne(
       {_id: req.params.id},
       {$push: {replies: req.body}}
       )
