@@ -4,22 +4,19 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ApiTestComponent from "./components/ApiTestComponent";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Main from "./pages/Main"
+import Login from "./pages/Login"
+// import { Table } from "react-bootstrap";
+
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Navbar />
-          <div className="App">
-            <div className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h2>Welcome to Crypto Chat</h2>
-            </div>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
-          </div>
-          <ApiTestComponent />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/main" component={Main}/>
       </Router>
     );
   }
