@@ -12,7 +12,7 @@ function Login() {
   Hi!
   <LoginButton />
   <br />
-  <a href="/main"><Button>Login</Button></a>
+  {/* <a href="/main"><Button>Login</Button></a> */}
   </>
   );
 }
