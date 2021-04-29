@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
 
-function ApiTestComponent() {
+function Forum() {
     const [forumPosts, setForumPosts] = useState([]);
     const [singlePost, setSinglePost] = useState({});
     const [viewSinglePost, setViewSinglePost] = useState(false);
@@ -100,4 +100,4 @@ function ApiTestComponent() {
     );
 }
 
-export default ApiTestComponent;
+export default Forum;
