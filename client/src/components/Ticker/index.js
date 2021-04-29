@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 
-function ApiTestComponent() {
+function Ticker() {
     const [market, setMarket] = useState([]);
 
     useEffect(() => {
@@ -48,4 +48,4 @@ function ApiTestComponent() {
     );
 }
 
-export default ApiTestComponent;
+export default Ticker;
