@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
 
-function ApiTestComponent() {
+function Forum() {
     const [forumPosts, setForumPosts] = useState([]);
     const [singlePost, setSinglePost] = useState({});
     const [viewSinglePost, setViewSinglePost] = useState(false);
@@ -58,7 +58,9 @@ function ApiTestComponent() {
         <>
             {viewSinglePost ? (
                 <>
-                    <p>{singlePost.title} created by {singlePost.user}</p>
+                    <p>
+                        {singlePost.title} created by {singlePost.user}
+                    </p>
                     {singlePost.replies.map((value, index) => {
                         return (
                             <div key={index}>
@@ -71,6 +73,13 @@ function ApiTestComponent() {
                         value="X"
                         onClick={onCloseButtonClick}
                     ></input>
+                    <form
+                        action="/action_page.php"
+                        onSubmit={handleReplySubmit}
+                    >
+                        <input type="text" id="Reply" name="Reply"></input>
+                        <input type="submit" value="Submit Reply"></input>
+                    </form>
                 </>
             ) : (
                 <>
@@ -85,19 +94,14 @@ function ApiTestComponent() {
                             </div>
                         );
                     })}
+                    <form action="/action_page.php" onSubmit={handlePostSubmit}>
+                        <input type="text" id="post" name="post"></input>
+                        <input type="submit" value="Submit Post"></input>
+                    </form>
                 </>
             )}
-
-            <form action="/action_page.php" onSubmit={handlePostSubmit}>
-                <input type="text" id="post" name="post"></input>
-                <input type="submit" value="Submit Post"></input>
-            </form>
-            <form action="/action_page.php" onSubmit={handleReplySubmit}>
-                <input type="text" id="Reply" name="Reply"></input>
-                <input type="submit" value="Submit Reply"></input>
-            </form>
         </>
     );
 }
 
-export default ApiTestComponent;
+export default Forum;
