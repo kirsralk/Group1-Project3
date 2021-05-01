@@ -1,6 +1,7 @@
 import axios from "axios";
 
-let APIKey = "ftmd8u8n5ppzdw9ghpodld";
+let APIKey = process.env.REACT_APP_API_KEY;
+
 let limit = 25;
 
 export default { 

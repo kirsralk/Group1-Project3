@@ -6,26 +6,15 @@ function Forum() {
     const [forumPosts, setForumPosts] = useState([]);
     const [singlePost, setSinglePost] = useState({});
     const [viewSinglePost, setViewSinglePost] = useState(false);
-    const [singlePostid, setSinglePostid] = useState("");
+    const [singlePostId, setSinglePostId] = useState("");
 
     useEffect(() => {
         getPosts();
     }, [viewSinglePost]);
 
-    const handlePostSubmit = (event) => {
-        event.preventDefault();
-        API.createPost({
-            user: "TEST USER",
-            title: "TEST TITLE",
-            body: "TEST BODY",
-            replies: [],
-            createdAt: Date.now(),
-        });
-    };
-
     const getPosts = () => {
         if (viewSinglePost) {
-            API.getPostById(singlePostid).then((res) => {});
+            API.getPostById(singlePostId).then((res) => {});
         } else {
             API.getAllPosts().then((res) => {
                 setForumPosts(res.data);
@@ -33,32 +22,46 @@ function Forum() {
         }
     };
 
+    const handlePostSubmit = (event) => {
+        event.preventDefault();
+        console.log(event.target.children.postTitle.value);
+        console.log(event.target.children.postBody.value);
+        API.createPost({
+            user: "TEST USER",
+            title: event.target.children.postTitle.value,
+            body: event.target.children.postBody.value,
+            replies: [],
+            createdAt: Date.now(),
+        });
+    };
+
     const handleReplySubmit = (event) => {
         event.preventDefault();
-        API.createReply("6088388bf3aa4c3ae0e5eea9", {
+        API.createReply(singlePostId, {
             user: "TEST REPLY USER",
-            title: "TEST REPLY TITLE",
-            body: "TEST REPLY BODY",
+            body: event.target.children.postBody.value,
             createdAt: Date.now(),
         });
     };
 
     const onPostClick = (post) => {
         setViewSinglePost(true);
-        //setSinglePostid(event.target.id);
+        setSinglePostId(post._id);
         setSinglePost(post);
     };
 
     const onCloseButtonClick = (event) => {
         setViewSinglePost(false);
-        setSinglePostid("");
+        setSinglePostId("");
     };
 
     return (
         <>
             {viewSinglePost ? (
                 <>
-                    <p>{singlePost.title} created by {singlePost.user}</p>
+                    <p>
+                        {singlePost.title} created by {singlePost.user}
+                    </p>
                     {singlePost.replies.map((value, index) => {
                         return (
                             <div key={index}>
@@ -71,6 +74,18 @@ function Forum() {
                         value="X"
                         onClick={onCloseButtonClick}
                     ></input>
+                    <form
+                        action="/action_page.php"
+                        onSubmit={handleReplySubmit}
+                    >
+                        <input
+                            type="text"
+                            id="postBody"
+                            name="postBody"
+                            placeholder="Body"
+                        ></input>
+                        <input type="submit" value="Submit Reply"></input>
+                    </form>
                 </>
             ) : (
                 <>
@@ -85,17 +100,23 @@ function Forum() {
                             </div>
                         );
                     })}
+                    <form action="/action_page.php" onSubmit={handlePostSubmit}>
+                        <input
+                            type="text"
+                            id="postTitle"
+                            name="postTitle"
+                            placeholder="Title"
+                        ></input>
+                        <input
+                            type="text"
+                            id="postBody"
+                            name="postBody"
+                            placeholder="Body"
+                        ></input>
+                        <input type="submit" value="Submit Post"></input>
+                    </form>
                 </>
             )}
-
-            <form action="/action_page.php" onSubmit={handlePostSubmit}>
-                <input type="text" id="post" name="post"></input>
-                <input type="submit" value="Submit Post"></input>
-            </form>
-            <form action="/action_page.php" onSubmit={handleReplySubmit}>
-                <input type="text" id="Reply" name="Reply"></input>
-                <input type="submit" value="Submit Reply"></input>
-            </form>
         </>
     );
 }
