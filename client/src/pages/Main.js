@@ -6,6 +6,7 @@ import Forum from "../components/Forum";
 import User from "../components/User";
 import Hero from "../components/Hero";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ScrollMarquee from "../components/ScrollMarquee";
 
 function Main() {
   return (
@@ -19,9 +20,11 @@ function Main() {
           {/* <h2>Welcome to Crypto Chat</h2>
         </div> */}
         <User />
-      </div>
+        {/* <ScrollMarquee /> */}
+     
       <Ticker/>
       <Forum />
+       </div>
     </>
   );
 }
