@@ -1,18 +1,19 @@
 import React from "react";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Button from 'react-bootstrap/Button';
 import LoginButton from "../components/LoginButton";
-
+import "../App.css";
 
 function Login() {
   return (
-  <> 
-  Hi!
-  <LoginButton />
-  <br />
-  {/* <a href="/main"><Button>Login</Button></a> */}
-  </>
+    <>
+      <div class="test">
+        <br />
+        <br />
+        <img class="heading" src="../cryptochat.png" />
+        <p align="center"><LoginButton /></p>
+        <br />
+      </div>
+    </>
   );
 }
 
