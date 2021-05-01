@@ -19,7 +19,7 @@ function Main() {
           {/* <img src={background} /> */}
           {/* <h2>Welcome to Crypto Chat</h2>
         </div> */}
-        <User />
+        {/* <User /> */}
         {/* <ScrollMarquee /> */}
      
       <Ticker/>
