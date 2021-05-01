@@ -1,36 +1,58 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
+import SingleForumPost from "../SingleForumPost";
+import AllForumPosts from "../AllForumPosts";
 import API from "../../utils/API";
-import {useAuth0} from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Forum() {
+    //get our user and whether theyre cool or not
+    const { user, isAuthenticated} = useAuth0();
 
-    const {user, isAuthenticated, isLoading} = useAuth0();
+    //boolean to determine if resources are required to render
+    const [isLoading, setIsLoading] = useState(false);
+    //all forum posts retireved from db
     const [forumPosts, setForumPosts] = useState([]);
+    //single forum post from db
     const [singlePost, setSinglePost] = useState({});
+    //replies to the single post from db
+    const [singlePostReplies, setSinglePostReplies] = useState([]);
+    //bollean to determine if the single post should displayed or if all posts should be
     const [viewSinglePost, setViewSinglePost] = useState(false);
+    //id of single post to retireve from db
     const [singlePostId, setSinglePostId] = useState("");
-    // TODO toggler to update when a new post is submitted so useeffect can rerender
+    //toggler to re render page when we want
+    const [renderPage, makePageReRender] = useState(true);
 
+    //call useeffect when we want to switch to and from viewing a single post or 
+    //when renderPage is toggled
     useEffect(() => {
         getPosts();
-    }, [viewSinglePost]);
+    }, [viewSinglePost, renderPage]);
 
     const getPosts = () => {
+        //wait for db results before rendering page
+        setIsLoading(true);
         if (viewSinglePost) {
-            API.getPostById(singlePostId).then((res) => {/*TODO take single post from db not forumPosts arr*/});
+            //get single post based on id
+            API.getPostById(singlePostId).then((res) => {
+                setSinglePostReplies(res.data.replies);
+                setSinglePost(res.data);
+                setIsLoading(false);
+            });
         } else {
+            //be greedy get all the posts
             API.getAllPosts().then((res) => {
                 setForumPosts(res.data);
+                setIsLoading(false);
             });
         }
     };
 
     const handlePostSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target.children.postTitle.value);
-        console.log(event.target.children.postBody.value);
-        if(isAuthenticated){
+        //if user is authenticated create a post
+        if (isAuthenticated) {
             API.createPost({
                 user: user.name,
                 title: event.target.children.postTitle.value,
@@ -39,95 +61,72 @@ function Forum() {
                 createdAt: Date.now(),
             });
         } else {
+            //otherwise tell them they cant 
             alert("pls authenticate");
         }
+        //rerender page
+        makePageReRender(!renderPage);
+        //clear inputs
+        event.target.children.postTitle.value = "";
+        event.target.children.postBody.value = "";
     };
 
     const handleReplySubmit = (event) => {
         event.preventDefault();
-        if(isAuthenticated){
+        //if user is authenticated create a reply
+        if (isAuthenticated) {
             API.createReply(singlePostId, {
                 user: user.name,
                 body: event.target.children.postBody.value,
                 createdAt: Date.now(),
             });
         } else {
+            //otherwise tell them they cant 
             alert("pls authenticate");
         }
+        //rerender page
+        makePageReRender(!renderPage);
+        //clear inputs
+        event.target.children.postBody.value = "";
     };
 
     const onPostClick = (post) => {
-        setViewSinglePost(true);
+        //set id to search db for
         setSinglePostId(post._id);
-        setSinglePost(post);
+        //view a single post hopefully the one clicked
+        setViewSinglePost(true);
     };
 
-    const onCloseButtonClick = (event) => {
+    const onCloseButtonClick = () => {
+        //see all posts
         setViewSinglePost(false);
+        //clear single post id
         setSinglePostId("");
     };
+
+    //display loading thing to let users know that were working on it
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
 
     return (
         <>
             {viewSinglePost ? (
                 <>
-                    <p>
-                        {singlePost.title} created by {singlePost.user}
-                    </p>
-                    {singlePost.replies.map((value, index) => {
-                        return (
-                            <div key={index}>
-                                <p>{value.user}: </p>
-                                <p>{value.body}</p>;<hr></hr>
-                            </div>
-                        );
-                    })}
-                    <input
-                        type="button"
-                        value="X"
-                        onClick={onCloseButtonClick}
-                    ></input>
-                    <form
-                        action="/action_page.php"
-                        onSubmit={handleReplySubmit}
-                    >
-                        <input
-                            type="text"
-                            id="postBody"
-                            name="postBody"
-                            placeholder="Body"
-                        ></input>
-                        <input type="submit" value="Submit Reply"></input>
-                    </form>
+                    <SingleForumPost 
+                        post={singlePost}
+                        replies={singlePostReplies}
+                        closePost={onCloseButtonClick}
+                        submitReply={handleReplySubmit}
+                    />
                 </>
             ) : (
                 <>
-                    {forumPosts.map((value, index) => {
-                        return (
-                            <div key={index} onClick={() => onPostClick(value)}>
-                                <p id={value._id}>
-                                    {value.title} created by {value.user}
-                                </p>
-                                <p>replies: {value.replies.length}</p>
-                                <hr></hr>
-                            </div>
-                        );
-                    })}
-                    <form action="/action_page.php" onSubmit={handlePostSubmit}>
-                        <input
-                            type="text"
-                            id="postTitle"
-                            name="postTitle"
-                            placeholder="Title"
-                        ></input>
-                        <input
-                            type="text"
-                            id="postBody"
-                            name="postBody"
-                            placeholder="Body"
-                        ></input>
-                        <input type="submit" value="Submit Post"></input>
-                    </form>
+                    <AllForumPosts 
+                        posts={forumPosts}
+                        submitPost={handlePostSubmit}
+                        clickPost={onPostClick}
+                    />
                 </>
             )}
         </>
