@@ -7,9 +7,13 @@ Table {
 
 td {
     color: #EEEEEE;
-    width: 17% !important; 
+    width: 25% !important; 
 }
 
 body {
     background-color: #212121 !important;
+}
+
+.coin {
+    width: 20px;
 }

@@ -1,3 +1,11 @@
 nav.navbar.navbar-default {
     margin-bottom: 0;
   }
+
+.nav-item {
+  color: black;
+}
+
+/* p {
+  color: black;
+} */
