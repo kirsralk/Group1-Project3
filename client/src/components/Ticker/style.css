@@ -2,8 +2,14 @@ Table {
     width: 50% !important;
     margin-left: auto;
     margin-right: auto;
+    background-color: #212121;
 }
 
 td {
+    color: #EEEEEE;
     width: 17% !important; 
+}
+
+body {
+    background-color: #212121 !important;
 }
