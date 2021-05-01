@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 import LogoutButton from "../Logout";
+// import { useAuth0 } from "@auth0/auth0-react";
+// import User from "../User";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar() {
