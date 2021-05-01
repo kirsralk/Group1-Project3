@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
+import {useAuth0} from "@auth0/auth0-react";
 
 function Forum() {
+
+    const {user, isAuthenticated, isLoading} = useAuth0();
     const [forumPosts, setForumPosts] = useState([]);
     const [singlePost, setSinglePost] = useState({});
     const [viewSinglePost, setViewSinglePost] = useState(false);
     const [singlePostId, setSinglePostId] = useState("");
+    // TODO toggler to update when a new post is submitted so useeffect can rerender
 
     useEffect(() => {
         getPosts();
@@ -14,7 +18,7 @@ function Forum() {
 
     const getPosts = () => {
         if (viewSinglePost) {
-            API.getPostById(singlePostId).then((res) => {});
+            API.getPostById(singlePostId).then((res) => {/*TODO take single post from db not forumPosts arr*/});
         } else {
             API.getAllPosts().then((res) => {
                 setForumPosts(res.data);
@@ -26,22 +30,30 @@ function Forum() {
         event.preventDefault();
         console.log(event.target.children.postTitle.value);
         console.log(event.target.children.postBody.value);
-        API.createPost({
-            user: "TEST USER",
-            title: event.target.children.postTitle.value,
-            body: event.target.children.postBody.value,
-            replies: [],
-            createdAt: Date.now(),
-        });
+        if(isAuthenticated){
+            API.createPost({
+                user: user.name,
+                title: event.target.children.postTitle.value,
+                body: event.target.children.postBody.value,
+                replies: [],
+                createdAt: Date.now(),
+            });
+        } else {
+            alert("pls authenticate");
+        }
     };
 
     const handleReplySubmit = (event) => {
         event.preventDefault();
-        API.createReply(singlePostId, {
-            user: "TEST REPLY USER",
-            body: event.target.children.postBody.value,
-            createdAt: Date.now(),
-        });
+        if(isAuthenticated){
+            API.createReply(singlePostId, {
+                user: user.name,
+                body: event.target.children.postBody.value,
+                createdAt: Date.now(),
+            });
+        } else {
+            alert("pls authenticate");
+        }
     };
 
     const onPostClick = (post) => {
@@ -65,6 +77,7 @@ function Forum() {
                     {singlePost.replies.map((value, index) => {
                         return (
                             <div key={index}>
+                                <p>{value.user}: </p>
                                 <p>{value.body}</p>;<hr></hr>
                             </div>
                         );
