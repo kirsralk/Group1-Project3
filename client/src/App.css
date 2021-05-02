@@ -4,11 +4,6 @@
   font: #EEEEEE;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -16,14 +11,6 @@
   color: white;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 .test {
   color: pink;
@@ -44,6 +31,7 @@ body, html {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px !important;
   /* position: relative;
   top: 50%;
   left: 25%; */
