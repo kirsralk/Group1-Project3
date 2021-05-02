@@ -55,8 +55,8 @@ function Forum() {
         if (isAuthenticated) {
             API.createPost({
                 user: user.name,
-                title: event.target.children.postTitle.value,
-                body: event.target.children.postBody.value,
+                title: event.target.children.form.children.postTitle.value,
+                body: event.target.children.form.children.postBody.value,
                 replies: [],
                 createdAt: Date.now(),
             });
@@ -66,9 +66,6 @@ function Forum() {
         }
         //rerender page
         makePageReRender(!renderPage);
-        //clear inputs
-        event.target.children.postTitle.value = "";
-        event.target.children.postBody.value = "";
     };
 
     const handleReplySubmit = (event) => {

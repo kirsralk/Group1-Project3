@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Main from "./pages/Main"
 import Login from "./pages/Login"
+require('dotenv').config();
+
 // import { Table } from "react-bootstrap";
 
 
