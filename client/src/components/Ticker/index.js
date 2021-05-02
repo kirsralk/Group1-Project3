@@ -3,6 +3,9 @@ import "./style.css";
 import API from "../../utils/API";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
+import { render } from 'react-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function Ticker() {
     const [market, setMarket] = useState([]);
@@ -11,34 +14,42 @@ function Ticker() {
         API.getMarket().then((res) => {
             //otherwise useeffect gets called infinitely for some reason
             if (market.length === 0) setMarket(res.data.data);
+            console.log(res.data.data);
         });
     },[]);
-
+    
     return (
         <>
             {market.map((value, index) => {
+                var lowerName = value.n.replace(/\s+/g, '-').toLowerCase();
+                var lowerIcon = value.s.toLowerCase();
+                var coinURL = "https://cryptologos.cc/logos/" + lowerName + "-" + lowerIcon + "-logo.png?v=010";
+                var USD = value.p.toFixed(2);
+                
                 return (
-
                 <Table responsive size="sm">
                     <tr>
                         <td>
+                            <img class="coin" src= {coinURL} alt="" /> &nbsp;
                             {value.n}
                         </td>
                         <td>
                             {value.s}
                         </td>
                         <td>
-                            ${value.p} USD
+                            ${USD} USD
                         </td>
-                        <td>
-                            % Change 24h: {value.pc}
+                        <td style={{color: value.pc < 0 ? "red" : "green"}}>
+                            <FontAwesomeIcon icon="angle-double-up" style={{visibility: value.pc < 0 ? "hidden" : "visible"}}/>
+                            &nbsp; {value.pc} &nbsp;
+                            <FontAwesomeIcon icon="angle-double-down" style={{visibility: value.pc < 0 ? "visible" : "hidden"}}/>
                         </td>
-                        <td>
+                        {/* <td>
                             Market Cap: {value.mc}
                         </td>
                         <td>
                             24h Volume: {value.v}
-                        </td>
+                        </td> */}
                     </tr>
                 </Table>
 

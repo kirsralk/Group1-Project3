@@ -1,5 +1,5 @@
 Table {
-    width: 50% !important;
+    /* width: 50% !important; */
     margin-left: auto;
     margin-right: auto;
     background-color: #212121;
@@ -7,9 +7,13 @@ Table {
 
 td {
     color: #EEEEEE;
-    width: 17% !important; 
+    width: 25% !important; 
 }
 
 body {
     background-color: #212121 !important;
+}
+
+.coin {
+    width: 20px;
 }
