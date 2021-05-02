@@ -10,7 +10,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="dev-mdrmoj72.us.auth0.com"
     clientId="1MNv0fwq3DCgg74cuMZsy5v2SKRo9cqq"
-    redirectUri="http://localhost:3000/main"
+    redirectUri="https://secure-depths-62084.herokuapp.com/main"
     // "http://localhost:3000/main" 
     // "https://secure-depths-62084.herokuapp.com/main"
     // {window.location.origin}

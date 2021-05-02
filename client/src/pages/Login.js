@@ -9,7 +9,7 @@ function Login() {
       <div class="test">
         <br />
         <br />
-        <img class="heading" src="../cryptochat.png" />
+        <img class="heading" src="../cryptochat.png" alt="" />
         <p align="center"><LoginButton /></p>
         <br />
       </div>

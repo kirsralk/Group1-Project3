@@ -5,6 +5,9 @@
   "proxy": "http://127.0.0.1:3001/",
   "dependencies": {
     "@auth0/auth0-react": "^1.4.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "express": "^4.17.1",
@@ -14,7 +17,8 @@
     "react-fast-marquee": "^1.1.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^2.1.1"
+    "react-scripts": "^2.1.1",
+    "react-twitter-embed": "^3.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
