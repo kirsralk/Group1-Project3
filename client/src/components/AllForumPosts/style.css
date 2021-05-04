@@ -1,0 +1,28 @@
+.postCards{
+    width: 18rem;
+}
+.postCards:hover{
+    cursor: pointer;
+}
+
+.postUserText{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.postInputs{
+    width: 18rem;
+    background-color: dimgrey;
+    color: white;
+}
+.postInputs:focus{
+    background-color: dimgrey;
+}
+.postInputs::placeholder{
+    color: white;
+}
+
+#submitPostBtn{
+    width: 100%;
+}
