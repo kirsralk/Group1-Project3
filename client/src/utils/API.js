@@ -3,7 +3,7 @@ import axios from "axios";
 let APIKey = process.env.REACT_APP_API_KEY;
 console.log(process.env);
 
-let limit = 5;
+let limit = 25;
 
 export default { 
     getMarket: function() {
