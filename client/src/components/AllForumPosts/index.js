@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { Form, Button, Card, Container, Col } from "react-bootstrap";
+import { Form, Button, Card, Container, Col, Row } from "react-bootstrap";
 
 function AllForumPosts(props) {
     return (
@@ -11,15 +11,16 @@ function AllForumPosts(props) {
                         key={index}
                         onClick={() => props.clickPost(value)}
                         className="postCards"
+                        bg="dark"
                     >
                         <Card.Header>{value.title}</Card.Header>
                         <Card.Body>
                             <Card.Text>{value.body}</Card.Text>
                             <Card.Footer>
-                                <Container fluid>
+                                <Row>
                                     <Col lg={6}>
-                                        <Card.Subtitle className="mb-2 text-muted postUserText">
-                                            <p>{value.user}</p>
+                                        <Card.Subtitle className="mb-2 text-muted">
+                                            <p className="postUserText">{value.user}</p>
                                         </Card.Subtitle>
                                     </Col>
                                     <Col lg={6}>
@@ -27,14 +28,14 @@ function AllForumPosts(props) {
                                             <p>{value.replies.length} replies</p>
                                         </Card.Subtitle>
                                     </Col>
-                                </Container>
+                                </Row>
                             </Card.Footer>
                         </Card.Body>
                     </Card>
                 );
             })}
 
-            <Form onSubmit={props.submitPost}>
+            <Form bg="dark" onSubmit={props.submitPost}>
                 <Form.Group id="form">
                     <Form.Control
                         placeholder="Post Title..."
