@@ -27,7 +27,8 @@ function Ticker() {
                 var USD = value.p.toFixed(2);
                 
                 return (
-                <Table responsive size="sm">
+                    
+                <Table hover variant="dark" responsive size="sm">
                     <tr>
                         <td>
                             <img class="coin" src= {coinURL} alt="" /> &nbsp;
@@ -41,7 +42,7 @@ function Ticker() {
                         </td>
                         <td style={{color: value.pc < 0 ? "red" : "green"}}>
                             <FontAwesomeIcon icon="angle-double-up" style={{visibility: value.pc < 0 ? "hidden" : "visible"}}/>
-                            &nbsp; {value.pc} &nbsp;
+                            &nbsp; {value.pc}% &nbsp;
                             <FontAwesomeIcon icon="angle-double-down" style={{visibility: value.pc < 0 ? "visible" : "hidden"}}/>
                         </td>
                         {/* <td>
@@ -52,7 +53,6 @@ function Ticker() {
                         </td> */}
                     </tr>
                 </Table>
-
                 );
             })}
         </>

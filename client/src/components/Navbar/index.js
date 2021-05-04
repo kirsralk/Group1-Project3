@@ -10,7 +10,7 @@ function Navbar1() {
   return (
     isAuthenticated && (
       <Navbar variant="dark">
-        <Navbar.Brand href="#home">Crypto Chat</Navbar.Brand>
+        <Navbar.Brand href="#home"></Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>Logged in as: <b>{user.name}</b> &nbsp;</Navbar.Text>
