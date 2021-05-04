@@ -3,7 +3,6 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar1 from "./components/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import ReactDOM from 'react-dom';

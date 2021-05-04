@@ -12,11 +12,12 @@ ReactDOM.render(
     clientId="1MNv0fwq3DCgg74cuMZsy5v2SKRo9cqq"
     redirectUri="https://secure-depths-62084.herokuapp.com/main"
     // "http://localhost:3000/main" 
-    // ""
+    // "https://secure-depths-62084.herokuapp.com/main"
     // {window.location.origin}
   >
     <App />
   </Auth0Provider>,
   document.getElementById("root")
 );
+
 registerServiceWorker();

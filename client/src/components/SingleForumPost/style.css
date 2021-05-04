@@ -1,0 +1,17 @@
+.replyInput{
+    background-color: dimgrey;
+    color: white;
+}
+.replyInput:focus{
+    background-color: dimgrey;
+}
+.replyInput::placeholder{
+    color: white;
+}
+
+.replyUser{
+    text-align: right;
+}
+.replyText{
+    text-align: left;
+}

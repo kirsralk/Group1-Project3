@@ -18,9 +18,11 @@ function Forum() {
     //replies to the single post from db
     const [singlePostReplies, setSinglePostReplies] = useState([]);
     //bollean to determine if the single post should displayed or if all posts should be
-    const [viewSinglePost, setViewSinglePost] = useState(false);
+    //const [viewSinglePost, setViewSinglePost] = useState(false);
+    const [viewSinglePost, setViewSinglePost] = useState(true);
     //id of single post to retireve from db
-    const [singlePostId, setSinglePostId] = useState("");
+    //const [singlePostId, setSinglePostId] = useState("");
+    const [singlePostId, setSinglePostId] = useState("608d6e323d4cf45f40f46edf");
     //toggler to re render page when we want
     const [renderPage, makePageReRender] = useState(true);
 
@@ -74,7 +76,7 @@ function Forum() {
         if (isAuthenticated) {
             API.createReply(singlePostId, {
                 user: user.name,
-                body: event.target.children.postBody.value,
+                body: event.target.children.form.children.postBody.value,
                 createdAt: Date.now(),
             });
         } else {
@@ -83,8 +85,6 @@ function Forum() {
         }
         //rerender page
         makePageReRender(!renderPage);
-        //clear inputs
-        event.target.children.postBody.value = "";
     };
 
     const onPostClick = (post) => {
