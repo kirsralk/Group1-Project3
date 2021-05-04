@@ -31,9 +31,45 @@ body, html {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px !important;
+  margin-bottom: 30px !important;
   /* position: relative;
   top: 50%;
   left: 25%; */
 } 
 
+.padded {
+  margin-top: 75px;
+}
+
+.subheading {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.tableContainer {
+  height: 400px;
+  overflow: auto;
+}
+
+/* Custom Scrollbar styles: */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #EEEEEE; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
