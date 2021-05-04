@@ -5,6 +5,7 @@ import AllForumPosts from "../AllForumPosts";
 import API from "../../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
 
+
 function Forum() {
     //get our user and whether theyre cool or not
     const { user, isAuthenticated} = useAuth0();
@@ -53,6 +54,7 @@ function Forum() {
 
     const handlePostSubmit = (event) => {
         event.preventDefault();
+        console.log(Date.now());
         //if user is authenticated create a post
         if (isAuthenticated) {
             API.createPost({
@@ -72,6 +74,7 @@ function Forum() {
 
     const handleReplySubmit = (event) => {
         event.preventDefault();
+        console.log(Date.now());
         //if user is authenticated create a reply
         if (isAuthenticated) {
             API.createReply(singlePostId, {
@@ -112,6 +115,7 @@ function Forum() {
                 <>
                     <SingleForumPost 
                         post={singlePost}
+                        date={singlePost.createdAt}
                         replies={singlePostReplies}
                         closePost={onCloseButtonClick}
                         submitReply={handleReplySubmit}

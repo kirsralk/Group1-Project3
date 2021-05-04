@@ -28,10 +28,10 @@ function Ticker() {
                 
                 return (
                     
-                <Table hover variant="dark" responsive size="sm">
+                <Table hover variant="dark" responsive size="sm" key={index}>
                     <tr>
                         <td>
-                            <img class="coin" src= {coinURL} alt="" /> &nbsp;
+                            <img className="coin" src= {coinURL} alt="" /> &nbsp;
                             {value.n}
                         </td>
                         <td>

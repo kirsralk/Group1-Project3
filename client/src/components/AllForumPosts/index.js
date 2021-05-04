@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 import { Form, Button, Card, Container, Col, Row } from "react-bootstrap";
+import { formatDistance, parseISO } from 'date-fns';
+
 
 function AllForumPosts(props) {
     return (
@@ -16,6 +18,7 @@ function AllForumPosts(props) {
                         <Card.Header>{value.title}</Card.Header>
                         <Card.Body>
                             <Card.Text>{value.body}</Card.Text>
+                            <Card.Text>{formatDistance(parseISO(value.createdAt), new Date(), { addSuffix: true })}</Card.Text>
                             <Card.Footer>
                                 <Row>
                                     <Col lg={6}>

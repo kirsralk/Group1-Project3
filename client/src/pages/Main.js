@@ -24,22 +24,22 @@ function Main() {
       <div className="App">
         <Container fluid>
           <Row>
-            <img src="../cryptochat.png" class="heading" alt="Welcome to Crypto Chat"/>
+            <img src="../cryptochat.png" className="heading" alt="Welcome to Crypto Chat"/>
           </Row>
           <Row>
             <Col>
-              <img src="https://media.giphy.com/media/YnkMcHgNIMW4Yfmjxr/giphy.gif" class="padded"/>
+              <img src="https://media.giphy.com/media/YnkMcHgNIMW4Yfmjxr/giphy.gif" className="padded"/>
               {/* <iframe src="https://giphy.com/embed/YnkMcHgNIMW4Yfmjxr" height="400" frameBorder="0"></iframe> */}
               <p>Advertisement</p>
             </Col>
             <Col>
-              <img src="../top25.png" class="subheading" alt="Top 25" />
-              <div class="tableContainer">
+              <img src="../top25.png" className="subheading" alt="Top 25" />
+              <div className="tableContainer">
                 <Ticker />
               </div> 
             </Col>
             <Col>
-              <img src="../twitter.png" class="subheading" alt="Twitter @Crypto" />
+              <img src="../twitter.png" className="subheading" alt="Twitter @Crypto" />
               <TwitterTimelineEmbed
                 sourceType="profile"
                 screenName="crypto"

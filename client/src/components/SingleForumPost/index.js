@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 import { Container, Row, Form, Button, Col } from "react-bootstrap";
+import { formatDistance, parseISO } from 'date-fns';
+
 
 function SingleForumPost(props) {
     return (
@@ -12,7 +14,7 @@ function SingleForumPost(props) {
                     </Row>
                     <Row>
                         <p className="float-left">
-                            created by {props.post.user}
+                            created by {props.post.user} on {new Date(props.date).toDateString()} 
                         </p>
                     </Row>
                 </Col>
@@ -59,6 +61,7 @@ function SingleForumPost(props) {
                     <Row key={index}>
                         <Col xs={2}>
                             <p className="replyUser">{value.user}: </p>
+                            <p className="replyUser">{formatDistance(parseISO(new Date(value.createdAt).toISOString()), new Date(), { addSuffix: true })}</p>
                         </Col>
                         <Col xs={10}>
                             <p className="replyText">{value.body}</p>
