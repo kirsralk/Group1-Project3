@@ -1,5 +1,9 @@
 .postCards{
-    width: 18rem;
+    width: 100%;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: block;
 }
 .postCards:hover{
     cursor: pointer;
@@ -12,7 +16,7 @@
 }
 
 .postInputs{
-    width: 18rem;
+    width: 100%;
     background-color: dimgrey;
     color: white;
 }
@@ -25,4 +29,14 @@
 
 #submitPostBtn{
     width: 100%;
+    background-color: #2B4162;
+    border-color: #557BB4;
+}
+
+.closeBtn{
+    color: #557BB4;
+}
+
+.leftText{
+    text-align: left;
 }

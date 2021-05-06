@@ -6,7 +6,7 @@ import { formatDistance, parseISO } from "date-fns";
 function SingleForumPost(props) {
     return (
         <Container>
-            <Card bg="dark">
+            <Card className="backgroundCard">
                 <Container id="singlePostCard">
                     <Row>
                         <Col xs={10} className='postHeader'>
@@ -27,7 +27,7 @@ function SingleForumPost(props) {
                                 variant="link"
                                 type="button"
                                 onClick={props.closePost}
-                                className="float-right"
+                                className="closeBtn"
                             >
                                 X
                             </Button>

@@ -19,11 +19,9 @@ function Forum() {
     //replies to the single post from db
     const [singlePostReplies, setSinglePostReplies] = useState([]);
     //bollean to determine if the single post should displayed or if all posts should be
-    //const [viewSinglePost, setViewSinglePost] = useState(false);
-    const [viewSinglePost, setViewSinglePost] = useState(true);
+    const [viewSinglePost, setViewSinglePost] = useState(false);
     //id of single post to retireve from db
-    //const [singlePostId, setSinglePostId] = useState("");
-    const [singlePostId, setSinglePostId] = useState("608d6e323d4cf45f40f46edf");
+    const [singlePostId, setSinglePostId] = useState("");
     //toggler to re render page when we want
     const [renderPage, makePageReRender] = useState(true);
 
