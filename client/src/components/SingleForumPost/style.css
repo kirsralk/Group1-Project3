@@ -6,10 +6,10 @@
 }
 .replyInput{
     background-color: dimgrey;
-    color: white;
 }
 .replyInput:focus{
     background-color: dimgrey;
+    color: white;
 }
 .replyInput::placeholder{
     color: white;

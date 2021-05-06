@@ -22,6 +22,7 @@
 }
 .postInputs:focus{
     background-color: dimgrey;
+    color: white;
 }
 .postInputs::placeholder{
     color: white;
