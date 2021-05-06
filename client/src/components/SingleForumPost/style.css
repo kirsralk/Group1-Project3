@@ -1,3 +1,9 @@
+.postHeader{
+    margin-left: 15px;
+}
+#replyForm{
+    margin-bottom: 10px;
+}
 .replyInput{
     background-color: dimgrey;
     color: white;
@@ -9,9 +15,47 @@
     color: white;
 }
 
-.replyUser{
-    text-align: right;
+.replyUserDate{
+    text-align: center;
 }
 .replyText{
     text-align: left;
+    margin-left: 5px;
 }
+
+#closeBtn{
+    color: #2B4162;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.replyUserName{
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.userInfo{
+    background-color: #F98510;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.reply{
+    margin-bottom: 5px;
+}
+
+#submitReplytBtn{
+    background-color: #2B4162;
+    border-color: #557BB4;
+    width: 100%;
+}
+.postBody{
+    font-size: 20px;
+}
+
+.backgroundCard{
+    background-color: #45454A;
+}
+
