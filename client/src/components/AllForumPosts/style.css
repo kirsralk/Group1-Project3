@@ -30,12 +30,12 @@
 
 #submitPostBtn{
     width: 100%;
-    background-color: #2B4162;
-    border-color: #557BB4;
+    background-color: black;
+    border-color: white;
 }
 
 .closeBtn{
-    color: #557BB4;
+    color: black;
 }
 
 .leftText{

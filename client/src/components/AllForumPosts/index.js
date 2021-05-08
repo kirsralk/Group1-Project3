@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { Form, Button, Card, Container, Col, Row } from "react-bootstrap";
 import { formatDistance, parseISO } from "date-fns";
 
 function AllForumPosts(props) {
+    const [titleValue, setTitleValue] = useState("");
+    const [bodyValue, setBodyValue] = useState("");
+
+    const handleChange = (event) => {
+        if (event.target.name === "postTitle") {
+            setTitleValue(event.target.value);
+        } else {
+            setBodyValue(event.target.value);
+        }
+    };
+
     return (
         <Container>
             <Card className="backgroundCard">
@@ -18,6 +29,7 @@ function AllForumPosts(props) {
                                         id="postTitle"
                                         name="postTitle"
                                         className="postInputs"
+                                        onChange={handleChange}
                                     />
                                     <Form.Control
                                         as="textarea"
@@ -26,14 +38,28 @@ function AllForumPosts(props) {
                                         id="postBody"
                                         name="PostBody"
                                         className="postInputs"
+                                        onChange={handleChange}
                                     />
-                                    <Button
-                                        variant="primary"
-                                        type="submit"
-                                        id="submitPostBtn"
-                                    >
-                                        Submit
-                                    </Button>
+                                    {titleValue.length > 0 &&
+                                    bodyValue.length > 0 ? (
+                                        <Button
+                                            variant="primary"
+                                            type="submit"
+                                            id="submitPostBtn"
+                                            disabled={false}
+                                        >
+                                            Submit
+                                        </Button>
+                                    ) : (
+                                        <Button
+                                            variant="primary"
+                                            type="submit"
+                                            id="submitPostBtn"
+                                            disabled={true}
+                                        >
+                                            Submit
+                                        </Button>
+                                    )}
                                 </Form.Group>
                             </Form>
 
@@ -57,14 +83,14 @@ function AllForumPosts(props) {
                                                 </Card.Text>
                                                 <Card.Footer>
                                                     <Row>
-                                                        <Col lg={4}>
+                                                        <Col xs={4}>
                                                             <Card.Subtitle className="mb-2 text-muted">
                                                                 <p className="postUserText">
                                                                     {value.user}
                                                                 </p>
                                                             </Card.Subtitle>
                                                         </Col>
-                                                        <Col lg={4}>
+                                                        <Col xs={4}>
                                                             <Card.Subtitle className="mb-2 text-muted">
                                                                 {formatDistance(
                                                                     parseISO(
@@ -77,7 +103,7 @@ function AllForumPosts(props) {
                                                                 )}
                                                             </Card.Subtitle>
                                                         </Col>
-                                                        <Col lg={4}>
+                                                        <Col xs={4}>
                                                             <Card.Subtitle className="mb-2 text-muted">
                                                                 <p>
                                                                     {

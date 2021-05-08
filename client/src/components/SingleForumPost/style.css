@@ -24,7 +24,7 @@
 }
 
 #closeBtn{
-    color: #2B4162;
+    color: black !important;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -38,7 +38,7 @@
 }
 
 .userInfo{
-    background-color: #2B4162;
+    background-color: black;
     border-radius: 5px 0px 0px 5px;
 }
 
@@ -47,8 +47,8 @@
 }
 
 #submitReplytBtn{
-    background-color: #2B4162;
-    border-color: #557BB4;
+    background-color: black;
+    border-color:white;
     width: 100%;
 }
 .postBody{
