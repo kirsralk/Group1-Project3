@@ -1,3 +1,15 @@
+/* Import custom font*/
+@font-face {
+  font-family: 'Bitwise';
+  src: local('Bitwise'), url(./fonts/bitwise.regular.ttf) format('truetype');
+}
+
+/* Media query to reduce h1 font size on  mobile */
+@media (max-width: 850px) {
+  h1 {font-size: 60px !important;}
+}
+
+
 .App {
   text-align: center;
   background-color:#212121;
@@ -11,6 +23,31 @@
   color: white;
 }
 
+.big-title {
+  font-family: 'Bitwise' !important;
+  color: #EEEEEE;
+  font-size: 150px;
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.forum-title {
+  font-family: 'Bitwise' !important;
+  color: #EEEEEE;
+  /* font-size: 150px; */
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.title {
+  font-family: 'Bitwise' !important;
+  color: #EEEEEE;
+}
 
 .test {
   color: pink;
