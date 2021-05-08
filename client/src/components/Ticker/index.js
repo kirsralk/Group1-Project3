@@ -25,25 +25,32 @@ function Ticker() {
                 var lowerIcon = value.s.toLowerCase();
                 var coinURL = "https://cryptologos.cc/logos/" + lowerName + "-" + lowerIcon + "-logo.png?v=010";
                 var USD = value.p.toFixed(2);
-                
+                var percent = value.pc.toFixed(2);
+
                 return (
                     
                 <Table hover variant="dark" responsive size="sm" key={index}>
                     <tr>
-                        <td>
-                            <img className="coin" src= {coinURL} alt="" /> &nbsp;
+                        <td class="mini">
+                            <p class="center"><img className="coin" src= {coinURL} alt="" /> &nbsp;</p>
+                        </td>
+                        <td class="quarter">
                             {value.n}
                         </td>
-                        <td>
+                        <td class="fifth">
                             {value.s}
                         </td>
-                        <td>
+                        <td class="quarter">
                             ${USD} USD
                         </td>
-                        <td style={{color: value.pc < 0 ? "red" : "green"}}>
-                            <FontAwesomeIcon icon="angle-double-up" style={{visibility: value.pc < 0 ? "hidden" : "visible"}}/>
-                            &nbsp; {value.pc}% &nbsp;
-                            <FontAwesomeIcon icon="angle-double-down" style={{visibility: value.pc < 0 ? "visible" : "hidden"}}/>
+                        <td class="mini small-pad-right" style={{color: value.pc < 0 ? "red" : "green"}}>
+                            <FontAwesomeIcon icon="angle-double-up" style={{visibility: value.pc < 0 ? "hidden" : "visible"}}/> &nbsp;                         
+                        </td>
+                        <td class="small-pad-right" style={{color: value.pc < 0 ? "red" : "green"}}>
+                            {percent}% 
+                        </td>
+                        <td class="mini small-pad-left"style={{color: value.pc < 0 ? "red" : "green"}}>
+                            &nbsp;<FontAwesomeIcon icon="angle-double-down" style={{visibility: value.pc < 0 ? "visible" : "hidden"}}/>
                         </td>
                         {/* <td>
                             Market Cap: {value.mc}
