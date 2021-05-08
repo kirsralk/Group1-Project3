@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { Container, Row, Form, Button, Col, Card } from "react-bootstrap";
 import { formatDistance, parseISO } from "date-fns";
 
 function SingleForumPost(props) {
+    const [bodyValue, setBodyValue] = useState("");
+
+    const handleChange = (event) => {
+        setBodyValue(event.target.value);
+    };
     return (
         <Container>
             <Card className="backgroundCard">
                 <Container id="singlePostCard">
                     <Row>
-                        <Col xs={10} className='postHeader'>
+                        <Col xs={10} className="postHeader">
                             <Row>
                                 <h1 className="float-left">
                                     {props.post.title}
@@ -22,7 +27,7 @@ function SingleForumPost(props) {
                                 </p>
                             </Row>
                         </Col>
-                        <Col xs={1} id='closeBtn'>
+                        <Col xs={1} id="closeBtn">
                             <Button
                                 variant="link"
                                 type="button"
@@ -33,7 +38,7 @@ function SingleForumPost(props) {
                             </Button>
                         </Col>
                     </Row>
-                    <Row className='postHeader'>
+                    <Row className="postHeader">
                         <p className="postBody">{props.post.body}</p>
                     </Row>
                     <Row id="replyForm">
@@ -47,26 +52,40 @@ function SingleForumPost(props) {
                                         id="postBody"
                                         name="PostBody"
                                         className="replyInput"
+                                        onChange={handleChange}
                                     />
-                                    <Button
-                                        variant="primary"
-                                        type="submit"
-                                        id="submitReplytBtn"
-                                        className="float-right"
-                                    >
-                                        Submit Reply
-                                    </Button>
+                                    {bodyValue.length > 0 ? (
+                                        <Button
+                                            variant="primary"
+                                            type="submit"
+                                            id="submitReplytBtn"
+                                            className="float-right"
+                                            disabled={false}
+                                        >
+                                            Submit Reply
+                                        </Button>
+                                    ) : (
+                                        <Button
+                                            variant="primary"
+                                            type="submit"
+                                            id="submitReplytBtn"
+                                            className="float-right"
+                                            disabled={true}
+                                        >
+                                            Submit Reply
+                                        </Button>
+                                    )}
                                 </Form.Group>
                             </Form>
                         </Col>
                     </Row>
                     {props.replies.map((value, index) => {
                         return (
-                            <Card bg="dark" className="reply">
-                                <Row key={index} noGutters={true}>
+                            <Card bg="dark" className="reply"  key={index}>
+                                <Row noGutters={true}>
                                     <Col xs={2} className="userInfo">
                                         <h5 className="replyUserName">
-                                            {value.user} 
+                                            {value.user}
                                         </h5>
                                         <p className="replyUserDate">
                                             {formatDistance(

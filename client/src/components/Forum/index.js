@@ -7,7 +7,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 
-
 function Forum() {
     //get our user and whether theyre cool or not
     const { user, isAuthenticated} = useAuth0();
@@ -26,8 +25,6 @@ function Forum() {
     const [singlePostId, setSinglePostId] = useState("");
     //toggler to re render page when we want
     const [renderPage, makePageReRender] = useState(true);
-
-    const [submitmessage, setSubmitMessage] = useState({})
 
     //call useeffect when we want to switch to and from viewing a single post or 
     //when renderPage is toggled
@@ -64,8 +61,6 @@ function Forum() {
                 body: event.target.children.form.children.postBody.value,
                 replies: [],
                 createdAt: Date.now(),
-            }).catch(err =>{
-                console.log(err);
             });
         } else {
             //otherwise tell them they cant 
