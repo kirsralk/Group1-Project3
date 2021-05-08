@@ -29,6 +29,9 @@
     top: 0px;
     right: 0px;
 }
+.closeBtn{
+    color: black !important;
+}
 
 .replyUserName{
     text-align: center;
