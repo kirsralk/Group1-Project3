@@ -10,17 +10,17 @@ function SingleForumPost(props) {
         setBodyValue(event.target.value);
     };
     return (
-        <Container>
+        <Container style={{marginBottom: "50px"}}>
             <Card className="backgroundCard">
                 <Container id="singlePostCard">
                     <Row>
-                        <Col xs={10} className="postHeader">
-                            <Row>
+                        <Col xs={10}>
+                            <Row  className="postHeader">
                                 <h1 className="float-left">
                                     {props.post.title}
                                 </h1>
                             </Row>
-                            <Row>
+                            <Row  className="postHeader">
                                 <p className="float-left">
                                     by {props.post.user} on{" "}
                                     {new Date(props.date).toDateString()}

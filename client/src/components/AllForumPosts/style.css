@@ -29,12 +29,16 @@
 }
 
 #submitPostBtn{
-    width: 100%;
+    float: right;
+    padding-left: 50px;
+    padding-right: 50px;
     background-color: black;
     border-color: white;
 }
 
-
+.formInputs{
+    margin-bottom: 60px;
+}
 
 .leftText{
     text-align: left;

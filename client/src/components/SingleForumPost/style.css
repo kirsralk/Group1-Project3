@@ -1,5 +1,5 @@
 .postHeader{
-    margin-left: 15px;
+    margin-left: 5px;
 }
 #replyForm{
     margin-bottom: 10px;
@@ -24,13 +24,13 @@
 }
 
 #closeBtn{
-    color: black !important;
+    color: white !important;
     position: absolute;
-    top: 0px;
+    top: 25px;
     right: 0px;
 }
 .closeBtn{
-    color: black !important;
+    color: white !important;
 }
 
 .replyUserName{
@@ -52,7 +52,9 @@
 #submitReplytBtn{
     background-color: black;
     border-color:white;
-    width: 100%;
+    float: right;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 .postBody{
     font-size: 20px;
@@ -60,5 +62,8 @@
 
 .backgroundCard{
     background-color: #45454A;
+    padding: 20px;
 }
+
+
 

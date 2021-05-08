@@ -16,13 +16,13 @@ function AllForumPosts(props) {
     };
 
     return (
-        <Container>
+        <Container style={{marginBottom: "50px"}}>
             <Card className="backgroundCard">
                 <Container>
                     <Row>
                         <Col>
                             <h1>Create a Post</h1>
-                            <Form bg="dark" onSubmit={props.submitPost}>
+                            <Form bg="dark" onSubmit={props.submitPost} className="formInputs">
                                 <Form.Group id="form">
                                     <Form.Control
                                         placeholder="Post Title..."
