@@ -7,11 +7,55 @@ Table {
 
 td {
     color: #EEEEEE;
-    width: 25% !important; 
+    text-align: left;
 }
+
+td.mini {
+    width: 10%;
+}
+
+td.fifth {
+    width: 20%;
+}
+
+td.quarter {
+    width: 25%
+}
+
+td.five {
+    width: 5%
+}
+
+td.small-pad {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+td.small-pad-right {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    text-align: right;
+}
+
+td.small-pad-left {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 10px;
+    text-align: left;
+}
+
 
 body {
     background-color: #212121 !important;
+}
+
+.center {
+    text-align: center;
 }
 
 .coin {

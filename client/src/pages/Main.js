@@ -30,7 +30,6 @@ function Main() {
             <Col>
 
               <img src="https://media.giphy.com/media/YnkMcHgNIMW4Yfmjxr/giphy.gif" className="padded"/>
-              {/* <iframe src="https://giphy.com/embed/YnkMcHgNIMW4Yfmjxr" height="400" frameBorder="0"></iframe> */}
               <p>Advertisement</p>
             </Col>
             <Col>

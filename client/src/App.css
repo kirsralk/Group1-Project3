@@ -44,12 +44,7 @@
   margin-top: 30px;
 }
 
-.title {
-  font-family: 'Bitwise' !important;
-  color: #EEEEEE;
-}
-
-.test {
+.login {
   color: pink;
   background-image: url("./bitcoinbg.jpg");
   background-size: cover;
@@ -59,6 +54,12 @@
   height: 100% !important;
   position: absolute;
 }
+
+.title {
+  font-family: 'Bitwise' !important;
+  color: #EEEEEE;
+}
+
 
 body, html {
   height: 100%;
