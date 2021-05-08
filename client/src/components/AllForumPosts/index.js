@@ -57,14 +57,14 @@ function AllForumPosts(props) {
                                                 </Card.Text>
                                                 <Card.Footer>
                                                     <Row>
-                                                        <Col lg={4}>
+                                                        <Col xs={4}>
                                                             <Card.Subtitle className="mb-2 text-muted">
                                                                 <p className="postUserText">
                                                                     {value.user}
                                                                 </p>
                                                             </Card.Subtitle>
                                                         </Col>
-                                                        <Col lg={4}>
+                                                        <Col xs={4}>
                                                             <Card.Subtitle className="mb-2 text-muted">
                                                                 {formatDistance(
                                                                     parseISO(
@@ -77,7 +77,7 @@ function AllForumPosts(props) {
                                                                 )}
                                                             </Card.Subtitle>
                                                         </Col>
-                                                        <Col lg={4}>
+                                                        <Col xs={4}>
                                                             <Card.Subtitle className="mb-2 text-muted">
                                                                 <p>
                                                                     {
