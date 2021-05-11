@@ -16,7 +16,7 @@ function SingleForumPost(props) {
                     <Row>
                         <Col xs={10}>
                             <Row  className="postHeader">
-                                <h1 className="float-left">
+                                <h1 className="float-left text-left wrap">
                                     {props.post.title}
                                 </h1>
                             </Row>
@@ -39,7 +39,7 @@ function SingleForumPost(props) {
                         </Col>
                     </Row>
                     <Row className="postHeader">
-                        <p className="postBody">{props.post.body}</p>
+                        <p className="postBody wrap text-left">{props.post.body}</p>
                     </Row>
                     <Row id="replyForm">
                         <Col>
@@ -100,7 +100,7 @@ function SingleForumPost(props) {
                                         </p>
                                     </Col>
                                     <Col xs={10}>
-                                        <p className="replyText">
+                                        <p className="replyText wrap text-left">
                                             {value.body}
                                         </p>
                                     </Col>
