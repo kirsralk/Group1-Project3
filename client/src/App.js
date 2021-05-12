@@ -5,7 +5,6 @@ import Navbar1 from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Main from "./pages/Main";
 import Login from "./pages/Login";
-import ReactDOM from "react-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 // import { fab } from '@fortawesome/free-brands-svg-icons';
 import {

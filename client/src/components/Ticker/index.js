@@ -3,7 +3,6 @@ import "./style.css";
 import API from "../../utils/API";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
-import { render } from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -41,7 +40,8 @@ function Ticker() {
                             {value.s}
                         </td>
                         <td class="quarter">
-                            ${USD} USD
+                            ${USD} 
+                            <br />USD
                         </td>
                         <td class="mini small-pad-right" style={{color: value.pc < 0 ? "red" : "green"}}>
                             <FontAwesomeIcon icon="angle-double-up" style={{visibility: value.pc < 0 ? "hidden" : "visible"}}/> &nbsp;                         
