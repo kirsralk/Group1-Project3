@@ -6,7 +6,7 @@ import { Navbar } from "react-bootstrap";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navbar1() {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   return (
     isAuthenticated && (
       <Navbar variant="dark">
