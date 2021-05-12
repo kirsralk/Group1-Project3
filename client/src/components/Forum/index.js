@@ -4,12 +4,11 @@ import SingleForumPost from "../SingleForumPost";
 import AllForumPosts from "../AllForumPosts";
 import API from "../../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
-
-
+import ls from "local-storage";
 
 function Forum() {
     //get our user and whether theyre cool or not
-    const { user, isAuthenticated} = useAuth0();
+    const { user, isAuthenticated } = useAuth0();
 
     //boolean to determine if resources are required to render
     const [isLoading, setIsLoading] = useState(false);
@@ -25,12 +24,15 @@ function Forum() {
     const [singlePostId, setSinglePostId] = useState("");
     //toggler to re render page when we want
     const [renderPage, makePageReRender] = useState(true);
+    const [count, setCount] = useState(0);
 
-    //call useeffect when we want to switch to and from viewing a single post or 
+    //call useeffect when we want to switch to and from viewing a single post or
     //when renderPage is toggled
     useEffect(() => {
         getPosts();
-    }, [viewSinglePost, renderPage]);
+        //console.log(count);
+        //window.scrollTo(0, 700);
+    }, [count, renderPage, viewSinglePost]);
 
     const getPosts = () => {
         //wait for db results before rendering page
@@ -63,7 +65,7 @@ function Forum() {
                 createdAt: Date.now(),
             });
         } else {
-            //otherwise tell them they cant 
+            //otherwise tell them they cant
             alert("pls authenticate");
         }
         //rerender page
@@ -80,7 +82,7 @@ function Forum() {
                 createdAt: Date.now(),
             });
         } else {
-            //otherwise tell them they cant 
+            //otherwise tell them they cant
             alert("pls authenticate");
         }
         //rerender page
@@ -88,6 +90,10 @@ function Forum() {
     };
 
     const onPostClick = (post) => {
+        //window.scrollTo(0, 700);
+        // var elmnt = document.getElementById("scrollHere");
+        // elmnt.scrollIntoView();
+        
         //set id to search db for
         setSinglePostId(post._id);
         //view a single post hopefully the one clicked
@@ -95,6 +101,8 @@ function Forum() {
     };
 
     const onCloseButtonClick = () => {
+        //setCount(count + 1);
+
         //see all posts
         setViewSinglePost(false);
         //clear single post id
@@ -105,25 +113,32 @@ function Forum() {
     if (isLoading) {
         return <p>Loading...</p>;
     }
-
+    ///727
+    ///727
+    ///727
+    ///727
+    ///727
+    ///727
     return (
         <>
             {viewSinglePost ? (
                 <>
-                    <SingleForumPost 
+                    <SingleForumPost
                         post={singlePost}
                         date={singlePost.createdAt}
                         replies={singlePostReplies}
                         closePost={onCloseButtonClick}
                         submitReply={handleReplySubmit}
+                        id="scrollHere"
                     />
                 </>
             ) : (
                 <>
-                    <AllForumPosts 
+                    <AllForumPosts
                         posts={forumPosts}
                         submitPost={handlePostSubmit}
                         clickPost={onPostClick}
+                        id="scrollHere"
                     />
                 </>
             )}

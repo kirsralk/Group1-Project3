@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Ticker from "../components/Ticker";
 import Forum from "../components/Forum";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,6 +19,7 @@ import {
 } from "react-twitter-embed";
 
 function Main() {
+
   return (
     <>
       <div className="App">
@@ -47,7 +48,7 @@ function Main() {
               />
             </Col>
           </Row>
-            <h2 class="forum-title">forum</h2>
+            <h2 id="scrollHere" class="forum-title">forum</h2>
           <Row>
             <Forum />
           </Row>

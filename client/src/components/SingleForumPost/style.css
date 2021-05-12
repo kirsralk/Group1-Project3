@@ -65,5 +65,8 @@
     padding: 20px;
 }
 
+.wrap{
+    word-break: break-all;
+}
 
 
