@@ -13,7 +13,7 @@
 
 * App Screenshot:
 
-![App Screenshot](TBD)
+![App Screenshot](screenshot.png)
 
 ### User Story
 
